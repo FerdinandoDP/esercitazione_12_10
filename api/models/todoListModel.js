@@ -25,5 +25,4 @@ var Post = new Schema({
     default: ['nessun_tag']
   }
 });
-
 module.exports = mongoose.model('Post', Post);
