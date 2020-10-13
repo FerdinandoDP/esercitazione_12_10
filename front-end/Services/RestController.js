@@ -15,7 +15,7 @@ class RestController{
                 console.log("errore");
            }
         });
-    }
+    }  
     Post(url_d, post2post){
             $.ajax({
                 url: url_d,
