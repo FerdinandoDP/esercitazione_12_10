@@ -53,6 +53,12 @@ class Controller{
        $('#id_article').val(""); 
        $('#modal_insert_2').modal('hide');
     }
+    reset_updatemodal(){
+       $('#id_u_article').val("");
+       $('#article_field').val("");
+       $('#update_field').val("");
+       $('#modal_insert_3').modal('hide'); 
+    }
     insert_Comment(punt){
         var text_com=$(punt.children('.comment_text')).val();
         var comm=new Comment(text_com);
@@ -97,8 +103,29 @@ class Controller{
         })
     }
     Patch_a_Post(){
-        this.rest_controller.Patch("http://localhost:3000/posts", "5f8472b81c2cf055c45d141a", "featured", "false");
+        var punt=(this);
+        $('#send_update_request').click(function(){
+            var id_art=$('#id_u_article').val();
+            var field=$('#article_field').val();
+            if(field=== "tags"){
+                var value=($('#update_field').val()).split(",");
+                for(var i=0;i<value.length;i++){
+                    var new_val="'"+value[i]+"'";
+                    value[i]=new_val;
+                }
+            }else{
+                var value=$('#update_field').val();
+                console.log(value);
+            }
+            punt.reset_updatemodal();
+            punt.rest_controller.Patch("http://localhost:3000/posts", id_art, field, value);
+        });
     }
- 
+    Init_Controller(){
+        this.get_Posts();
+        this.Post_a_Post();
+        this.delete_Posts();
+        this.Patch_a_Post(); 
+    }
     
 }

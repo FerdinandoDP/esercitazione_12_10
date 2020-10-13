@@ -59,7 +59,13 @@ class RestController{
             }) 
     }
     Patch(url_d, id_post, field, value){
-        var stre="[{"+field+": "+value+"}]";
+        if(field==="tags"){
+           var stre="[{"+field+": ["+value+"] }]"; 
+        }else{
+            console.log(field);
+            console.log(value);
+            var stre="[{"+field+": '"+value+"' }]";
+        }
         var obj=eval(stre);
         console.log(obj[0]);
         $.ajax({
