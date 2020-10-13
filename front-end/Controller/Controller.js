@@ -99,6 +99,6 @@ class Controller{
     Patch_a_Post(){
         this.rest_controller.Patch("http://localhost:3000/posts", "5f8472b81c2cf055c45d141a", "featured", "false");
     }
-    
+ 
     
 }

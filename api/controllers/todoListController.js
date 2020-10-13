@@ -45,7 +45,6 @@ exports.patch_a_post = function(req,res){
 };
 exports.delete_a_post = function(req, res) {
 
-
   Post.remove({
     _id: req.params.postId
   }, function(err, post) {

@@ -7,7 +7,7 @@ module.exports = function(app) {
     .get(todoList.list_all_posts)
     .post(todoList.create_a_post);
 
-
+    
   app.route('/posts/:postId')
     .get(todoList.read_a_post)
     .put(todoList.update_a_post)

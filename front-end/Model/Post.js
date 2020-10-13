@@ -5,5 +5,5 @@ class Post{
         this.tags=tags;
         this.featured=featured;
         this.public=pubblico;
-    }
+  }
 }
