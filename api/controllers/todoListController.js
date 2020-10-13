@@ -40,7 +40,7 @@ exports.patch_a_post = function(req,res){
     Post.findOneAndUpdate({_id: req.params.postId}, {$set: req.body}, {new: true}, function(err, post){
        if(err)
            res.send(err);
-        res.json("patch successful happened"+ post);
+        res.json("patch successfully happened"+ post);
     });
 };
 exports.delete_a_post = function(req, res) {
